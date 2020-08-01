@@ -60,14 +60,13 @@ public class CardOrderTest {
         $(".input_type_tel .input__sub").shouldHave(exactText("Поле обязательно для заполнения"));
     }
 
-
 @Test
     void shouldReturnErrorMessageIfCheckboxNotChecked(){
         open("http://localhost:9999");
         SelenideElement form = $(".form");
         form.$("[data-test-id=name] input").setValue("Василий Петров");
-        form.$("[data-test-id=phone] input").setValue("+39270000003");
+        form.$("[data-test-id=phone] input").setValue("+79270000000");
         form.$(".button").click();
-        $(".checkbox__text").shouldHave(cssValue("color", "rgba(255, 92, 92, 1)"));
+        $(".input_invalid").shouldHave(exactText("Я соглашаюсь с условиями обработки и использования моих персональных данных и разрешаю сделать запрос в бюро кредитных историй"));
     }
 }
