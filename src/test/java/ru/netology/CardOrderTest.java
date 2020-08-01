@@ -16,7 +16,8 @@ public class CardOrderTest {
         form.$("[data-test-id=phone] input").setValue("+79270000000");
         form.$("[data-test-id=agreement]").click();
         form.$(".button").click();
-        $("[data-test-id=order-success]").shouldHave(exactText("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время."));
+        $("[data-test-id=order-success]").shouldHave(exactText("Ваша заявка успешно отправлена! " +
+                "Наш менеджер свяжется с вами в ближайшее время."));
     }
 
     @Test
@@ -27,7 +28,8 @@ public class CardOrderTest {
         form.$("[data-test-id=phone] input").setValue("+79270000000");
         form.$("[data-test-id=agreement]").click();
         form.$(".button").click();
-        $(".input__sub").shouldHave(exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $(".input__sub").shouldHave(exactText("Имя и Фамилия указаные неверно. Допустимы только " +
+                "русские буквы, пробелы и дефисы."));
     }
 @Test
     void shouldReturnErrorMessageIfEmptyName(){
@@ -47,7 +49,8 @@ public class CardOrderTest {
         form.$("[data-test-id=phone] input").setValue("+3927000000320");
         form.$("[data-test-id=agreement]").click();
         form.$(".button").click();
-        $(".input_type_tel .input__sub").shouldHave(exactText("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
+        $(".input_type_tel .input__sub").shouldHave(exactText("Телефон указан неверно. Должно быть 11 цифр, " +
+                "например, +79012345678."));
     }
 
 @Test
@@ -67,6 +70,7 @@ public class CardOrderTest {
         form.$("[data-test-id=name] input").setValue("Василий Петров");
         form.$("[data-test-id=phone] input").setValue("+79270000000");
         form.$(".button").click();
-        $(".input_invalid").shouldHave(exactText("Я соглашаюсь с условиями обработки и использования моих персональных данных и разрешаю сделать запрос в бюро кредитных историй"));
+        $("[data-test-id=agreement].input_invalid").shouldHave(exactText("Я соглашаюсь с условиями обработки " +
+                "и использования моих персональных данных и разрешаю сделать запрос в бюро кредитных историй"));
     }
 }
